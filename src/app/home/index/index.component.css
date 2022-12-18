@@ -1,0 +1,75 @@
+.slider {
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 400%;
+	
+	animation: cambio 15s infinite alternate linear;
+}
+
+.slider li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider img {
+	width: 100%;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+.link-btn {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	cursor:pointer;
+	overflow: hidden;
+	outline:none;
+	font-size: 0.8em;
+	padding: 0px;
+  }
+  
+  .link-btn:hover {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	cursor:pointer;
+	overflow: hidden;
+	outline:none;
+	font-size: 0.8em;
+	padding: 0px;
+  }
+.img-nueva img{
+	height: 758px;
+}
+.order-card {
+	height: 500px;
+	background-color:gainsboro;
+}  
+.order-card img{
+	height: 400px;
+	padding: 20px;
+}
+.link-btn h1{
+	text-align: center;
+} 
+mat-card-content {
+	display: flex;
+	justify-content: center;
+} 

@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-md-offset-3 mx-auto">
+    <form
+      (ngSubmit)="save()"
+      autocomplete="off"
+      [formGroup]="form"
+      #frmLibro="ngForm"
+    >
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Nombre"
+          formControlName="nombreCliente"
+        />
+        <mat-error *ngIf="form.controls.nombreCliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Apellido</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Apellido"
+          formControlName="apellidoCliente"
+        />
+        <mat-error *ngIf="form.controls.apellidoCliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>DNI</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="DNI"
+          formControlName="dniCliente"
+        />
+        <mat-error *ngIf="form.controls.dniCliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Telefono</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Telefono"
+          formControlName="telefonoCliente"
+        />
+        <mat-error *ngIf="form.controls.telefonoCliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Celular</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Celular"
+          formControlName="celularCliente"
+        />
+        <mat-error *ngIf="form.controls.celularCliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Direccion</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Direccion"
+          formControlName="direccionCliente"
+        />
+        <mat-error *ngIf="form.controls.direccionCliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Email"
+          formControlName="emailCliente"
+        />
+        <mat-error *ngIf="form.controls.emailCliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-button routerLink="/clientes">Cancelar</button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="ms-2"
+        [disabled]="frmLibro.invalid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>

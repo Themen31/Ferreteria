@@ -1,0 +1,96 @@
+<h3 class="fw-bold">Modificar Mascota</h3>
+<div class="row">
+  <div class="col-md-offset-3 mx-auto">
+    <form
+      (ngSubmit)="save(form.value)"
+      autocomplete="off"
+      [formGroup]="form"
+      #frmLibro="ngForm"
+    >
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Nombre"
+          formControlName="nombre"
+          [(ngModel)]="mascota.nombre"
+        />
+        <mat-error *ngIf="form.controls.nombre.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.controls.nombre.hasError('minlength')">
+          Debe tener al menos 4 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls.nombre.hasError('maxlength')">
+          Debe tener 70 caracteres como maximo
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Especie</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Especie"
+          formControlName="especie"
+          [(ngModel)]="mascota.especie"
+        />
+        <mat-error *ngIf="form.controls.especie.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Raza</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Raza"
+          formControlName="raza"
+          [(ngModel)]="mascota.raza"
+        />
+        <mat-error *ngIf="form.controls.raza.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Sexo</mat-label>
+        <mat-select formControlName="sexo" [(ngModel)]="mascota.sexo">
+          <mat-option value="Macho">Macho</mat-option>
+          <mat-option value="Hembra">Hembra</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls.sexo.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Edad</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Edad"
+          formControlName="edad"
+          [(ngModel)]="mascota.edad"
+        />
+        <mat-error *ngIf="form.controls.edad.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-button routerLink="/mascotas">Cancelar</button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="ms-2"
+        [disabled]="frmLibro.invalid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>

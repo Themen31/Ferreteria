@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-md-offset-3 mx-auto">
+    <form
+      (ngSubmit)="save()"
+      autocomplete="off"
+      [formGroup]="form"
+      #frmLibro="ngForm"
+    >
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Cliente</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Cliente"
+          [matAutocomplete]="autoCliente"
+          [formControl]="myControlCliente"
+          formControlName="cliente"
+        />
+        <mat-autocomplete
+          #autoCliente="matAutocomplete"
+          [displayWith]="mostrarCliente"
+        >
+          <mat-option *ngFor="let c of clientesFiltrados$ | async" [value]="c">
+            {{ c.nombreCliente }}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="form.controls.cliente.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Nombre"
+          formControlName="nombre"
+        />
+        <mat-error *ngIf="form.controls.nombre.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.controls.nombre.hasError('minlength')">
+          Debe tener al menos 4 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls.nombre.hasError('maxlength')">
+          Debe tener 70 caracteres como maximo
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Descripcion</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Especie"
+          formControlName="especie"
+        />
+        <mat-error *ngIf="form.controls.especie.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Regalo</mat-label>
+        <input matInput type="text" placeholder="Raza" formControlName="raza" />
+        <mat-error *ngIf="form.controls.raza.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="sexo">
+          <mat-option value="Macho">Electronico</mat-option>
+          <mat-option value="Hembra">Mecanico</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls.sexo.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Precio</mat-label>
+        <input matInput type="text" placeholder="Edad" formControlName="edad" />
+        <mat-error *ngIf="form.controls.edad.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-button routerLink="/mascotas">Cancelar</button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="ms-2"
+        [disabled]="frmLibro.invalid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>

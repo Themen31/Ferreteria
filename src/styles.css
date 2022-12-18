@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.alert-danger {
+  background-color: red;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.order-card {
+  max-width: 400px;
+  padding-top: 1rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.example-card {
+  max-width: 400px;
+}
+body {
+  background:linear-gradient(rgba(12, 15, 17, 0.1),rgba(17, 93, 206, 0.1));
+  background-repeat: no-repeat,;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  background-color: rgb(207, 225, 228);
+
+
+}
+

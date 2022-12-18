@@ -1,0 +1,59 @@
+<div
+  class="form-layout"
+  ng-app="app.loginForm"
+  ng-controller="LoginCtrl as Login"
+>
+  <h2>Welcome</h2>
+
+  <form name="loginForm" novalidate>
+    <div
+      class="input-field"
+      ng-class="{ active: Login.isLabelActive(loginForm.email) }"
+    >
+      <label> E-mail </label>
+
+      <input
+        type="email"
+        name="email"
+        ng-blur="Login.blurInput(loginForm.email)"
+        ng-focus="Login.focusInput(loginForm.email)"
+        ng-model="Login.user.email"
+        class="form-control"
+        ng-class="{ 'is-dirty': Login.isDirty(loginForm.email) }"
+        required
+        autofocus
+      />
+    </div>
+
+    <div
+      class="input-field"
+      ng-class="{ active: Login.isLabelActive(loginForm.password) }"
+    >
+      <label> Password </label>
+
+      <input
+        type="password"
+        name="password"
+        ng-blur="Login.blurInput(loginForm.password)"
+        ng-focus="Login.focusInput(loginForm.password)"
+        ng-model="Login.user.password"
+        ng-maxlength="30"
+        ng-minlength="6"
+        class="form-control"
+        ng-class="{ 'is-dirty': Login.isDirty(loginForm.password) }"
+        required
+      />
+    </div>
+
+    <button
+      class="btn btn-lg btn-primary btn-block"
+      type="submit"
+      ng-click="Login.submit()"
+      ng-disabled="Login.isFormInvalid(loginForm)"
+    >
+      Log In
+    </button>
+  </form>
+
+  <h4 ng-if="Login.success">You are now logged in. Welcome to the party!</h4>
+</div>

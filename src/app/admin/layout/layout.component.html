@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <span>Administración</span>
+
+  <button mat-button routerLink="/admin/Producto" class="ms-2">
+    Productos
+  </button>
+  <button mat-button routerLink="/admin/Usuarios" class="ms-2">
+    Usuarios
+  </button>
+
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu" >
+    <mat-icon>account_circle</mat-icon> Gustavo Pacheco
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button routerLink='' mat-menu-item (click)="signOut()">
+      <mat-icon>logout</mat-icon > Cerrar sesión
+    </button>
+  </mat-menu >
+</mat-toolbar>
+
+<div class="container p-5">
+  <router-outlet></router-outlet>
+</div>

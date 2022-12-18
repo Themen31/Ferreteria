@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-md-offset-3 mx-auto">
+    <form
+      (ngSubmit)="save(form.value)"
+      autocomplete="off"
+      [formGroup]="form"
+      #frmLibro="ngForm"
+    >
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Numero Ficha</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="numeroFicha"
+          formControlName="numeroFicha"
+        />
+        <mat-error *ngIf="form.controls.numeroFicha.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Observacion</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="observacion"
+          formControlName="observacion"
+        />
+        <mat-error *ngIf="form.controls.observacion.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.controls.observacion.hasError('minlength')">
+          Debe tener al menos 5 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls.observacion.hasError('maxlength')">
+          Debe tener 700 caracteres como máximo
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Diagnostico</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="diagnostico"
+          formControlName="diagnostico"
+        />
+        <mat-error *ngIf="form.controls.diagnostico.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.controls.diagnostico.hasError('minlength')">
+          Debe tener al menos 5 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls.diagnostico.hasError('maxlength')">
+          Debe tener 700 caracteres como máximo
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Tratamiento</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="tratamiento"
+          formControlName="tratamiento"
+        />
+        <mat-error *ngIf="form.controls.tratamiento.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.controls.tratamiento.hasError('minlength')">
+          Debe tener al menos 5 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls.tratamiento.hasError('maxlength')">
+          Debe tener 700 caracteres como máximo
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-button routerLink="/admin/HistoriaClinica">Cancelar</button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="ms-2"
+        [disabled]="frmLibro.invalid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>

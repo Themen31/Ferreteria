@@ -1,0 +1,28 @@
+<mat-toolbar>
+  <span>Ferreteria Orbegoso</span>
+
+  <button mat-button routerLink="/" class="ms-2">Inicio</button>
+
+  <button mat-button routerLink="/admin/Producto" class="ms-2">
+    Iniciar sesión
+  </button>
+
+  <button mat-button routerLink="/mascotas" class="ms-2">Productos</button>
+  <button mat-button routerLink="/clientes" class="ms-2">Clientes</button>
+
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon> Usuario Cliente
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="signOut()">
+      <mat-icon>logout</mat-icon> Cerrar Sesión
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="container p-5">
+  <router-outlet></router-outlet>
+</div>

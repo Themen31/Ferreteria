@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-offset-3 mx-auto">
+    <form
+      (ngSubmit)="save(form.value)"
+      autocomplete="off"
+      [formGroup]="form"
+      #frmLibro="ngForm"
+    >
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Fecha Hora</mat-label>
+        <input
+          matInput
+          type="date"
+          placeholder="fechahora"
+          formControlName="fechahora"
+        />
+        <mat-error *ngIf="form.controls.fechahora.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Motivo</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="motivo"
+          formControlName="motivo"
+        />
+        <mat-error *ngIf="form.controls.motivo.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.controls.motivo.hasError('minlength')">
+          Debe tener al menos 5 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls.motivo.hasError('maxlength')">
+          Debe tener 700 caracteres como máximo
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-button routerLink="/admin/Citas">Cancelar</button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="ms-2"
+        [disabled]="frmLibro.invalid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>
